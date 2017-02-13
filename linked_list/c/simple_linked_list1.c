@@ -25,7 +25,8 @@ void print_linked_list(SLLNode *head){
     printf("\n");
 }
 
-int main(){
+int main() {
+
     SLLNode node0, node1, node2, node3, node4;
     SLLNode *head = &node0;
     node0.data = 10;
@@ -50,5 +51,7 @@ int main(){
     node4.data = 50;
     node4.next = NULL; 
     node3.next = &node4;
-    print_linked_list(head);    
+    print_linked_list(head);
+
+    return 0;    
 }

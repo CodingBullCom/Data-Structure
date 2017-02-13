@@ -49,6 +49,22 @@ void print_linked_list(SLLNode *head){
     printf("\n");
 }
 
+SLLNode *reverse_linked_list(SLLNode *head){
+
+    SLLNode *temp_node_ptr1 = head->next;
+    SLLNode *temp_node_ptr2 = head->next;
+
+    while(temp_node_ptr2 != NULL){
+        temp_node_ptr2 = temp_node_ptr2->next;
+        temp_node_ptr1->next = head;
+        if (head->next == temp_node_ptr1)
+            head->next = NULL;
+        head = temp_node_ptr1;
+        temp_node_ptr1 = temp_node_ptr2;
+    }    
+    return head;
+}
+
 void destroy_linked_list(SLLNode **head){
 
     SLLNode *temp_node_ptr1 = *head, *temp_node_ptr2 = *head;
@@ -65,29 +81,26 @@ void destroy_linked_list(SLLNode **head){
 int main(){
 
     SLLNode *head = create_new_node(10);
- //   printf("%p %p\n", &head, head);     //Unblock this line and check output to understand address better.
-    print_linked_list(head);
-
     insert_node(head, 20);
     insert_node(head, 30);
-    print_linked_list(head);    
-
     insert_node(head, 40);
     insert_node(head, 50);
     insert_node(head, 60);
-    print_linked_list(head);    
-
     insert_node(head, 70);
     insert_node(head, 80);
     insert_node(head, 90);
     insert_node(head, 100);
     print_linked_list(head);   
 
-    destroy_linked_list(&head);
-//  Unblock this line and block Line #55 and Line #90 to verify that the 
-//  destroy_linked_list function has really destroyed/ free up the memory location.    
-//  printf("\n\n\n %p %d %p\n\n\n", head, head->data, head->next);  
+    //Reverse the linked list
+    printf("\nCalling Reverse Linked List function");
+    head = reverse_linked_list(head);
+    printf("\nLinked List after executing the reverse function");    
     print_linked_list(head);   
+
+    destroy_linked_list(&head);
+    printf("\nLinked List destroyed/ deleted");
+    print_linked_list(head); 
 
     return 0; 
 }

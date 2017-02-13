@@ -68,5 +68,7 @@ int main(){
        print_stack(array, top);
 
     }while(1);
+
+    return 0;
 }
 

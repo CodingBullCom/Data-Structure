@@ -41,9 +41,12 @@ void print_linked_list(SLLNode *head){
 }
 
 int main(){
+  
    SLLNode *head = NULL;
    head = insert(head, 10);
    head = insert(head, 20);
    head = insert(head, 30);
    print_linked_list(head);
+
+   return 0;
 }

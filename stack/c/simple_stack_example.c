@@ -71,5 +71,7 @@ int main(){
        print_stack();
 
     }while(1);
+
+    return 0;
 }
 
