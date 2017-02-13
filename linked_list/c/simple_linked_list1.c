@@ -8,42 +8,47 @@
 // it can be used/ distributed without any restriction.  
 
 #include<stdio.h>
-#include<stdlib.h>
 
-typedef struct SLLNode {
-
+typedef struct node {
+    struct node *next;
     int data;
-    struct SLLNode *next;
-} SLLNode;
-
-SLLNode *insert(SLLNode *head, int data){
- 
-   if(head == NULL){
-       SLLNode *newNode = (SLLNode *)malloc(sizeof(SLLNode));;
-       newNode->data = data;
-       newNode->next = NULL;
-       return newNode;
-    }else {
-       head->next = insert(head->next, data);
-    }
-    return head;
-}
+} SLLNode;   
 
 void print_linked_list(SLLNode *head){
-
-   SLLNode *tempNode = head;
-   printf("\nPrinting the linked list content\n");
-   while(tempNode != NULL){
-       printf("\n%p, %d %p",tempNode, tempNode->data, tempNode->next);
-       tempNode = tempNode->next;
-   }
-   printf("\n");
+    
+    SLLNode *tempNodePtr = head;
+    printf("\nContent in Linked List -\n");
+    while(tempNodePtr != NULL){
+        printf("\n\t%p :: %d, %p",tempNodePtr, tempNodePtr->data, tempNodePtr->next);
+        tempNodePtr = tempNodePtr->next;
+    }
+    printf("\n");
 }
 
 int main(){
-   SLLNode *head = NULL;
-   head = insert(head, 10);
-   head = insert(head, 20);
-   head = insert(head, 30);
-   print_linked_list(head);
+    SLLNode node0, node1, node2, node3, node4;
+    SLLNode *head = &node0;
+    node0.data = 10;
+    node0.next = NULL;
+    print_linked_list(head);
+
+    node1.data = 20;
+    node1.next = NULL;
+    node0.next = &node1;
+    print_linked_list(head);    
+
+    node2.data = 30;
+    node2.next = NULL;
+    node1.next = &node2;
+    print_linked_list(head);    
+
+    node3.data = 40;
+    node3.next = NULL;
+    node2.next = &node3;
+    print_linked_list(head);    
+
+    node4.data = 50;
+    node4.next = NULL; 
+    node3.next = &node4;
+    print_linked_list(head);    
 }
