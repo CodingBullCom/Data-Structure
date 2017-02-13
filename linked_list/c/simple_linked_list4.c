@@ -50,18 +50,20 @@ void print_linked_list(SLLNode *head){
 }
 
 SLLNode *reverse_linked_list(SLLNode *head){
+    
+    if(head != NULL){
+        SLLNode *temp_node_ptr1 = head->next;
+        SLLNode *temp_node_ptr2 = head->next;
 
-    SLLNode *temp_node_ptr1 = head->next;
-    SLLNode *temp_node_ptr2 = head->next;
-
-    while(temp_node_ptr2 != NULL){
-        temp_node_ptr2 = temp_node_ptr2->next;
-        temp_node_ptr1->next = head;
-        if (head->next == temp_node_ptr1)
-            head->next = NULL;
-        head = temp_node_ptr1;
-        temp_node_ptr1 = temp_node_ptr2;
-    }    
+        while(temp_node_ptr2 != NULL){
+            temp_node_ptr2 = temp_node_ptr2->next;
+            temp_node_ptr1->next = head;
+            if (head->next == temp_node_ptr1)
+                head->next = NULL;
+            head = temp_node_ptr1;
+            temp_node_ptr1 = temp_node_ptr2;
+        }    
+    }
     return head;
 }
 
