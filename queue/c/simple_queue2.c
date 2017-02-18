@@ -1,3 +1,12 @@
+// File: simple_queue2.c
+// Created on: 16th Feb 2017
+// Updated on: 16th Feb 2017
+// Author: Pawan Kumar Singh [pawan@codingbull.com]
+// http://www.codingbull.com   
+//
+// This source code is the part of tutorial series provided on http://www.codingbull.com and 
+// it can be used/ distributed without any restriction.  
+
 #include<stdio.h>
 #include<stdlib.h>
 #define QUEUE_SIZE 10
