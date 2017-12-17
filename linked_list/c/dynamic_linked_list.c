@@ -2,22 +2,21 @@
 // Created on: 13th Feb 2017
 // Updated on: 13th Feb 2017
 // Author: Pawan Kumar Singh [pawan@codingbull.com]
-// http://www.codingbull.com   
+// http://www.codingbull.com
 //
-// This source code is the part of tutorial series provided on http://www.codingbull.com and 
-// it can be used/ distributed without any restriction.  
+// This source code is the part of tutorial series provided on http://www.codingbull.com and
+// it can be used/ distributed without any restriction.
 
 #include<stdio.h>
 #include<stdlib.h>
 
 typedef struct SLLNode {
-
     int data;
     struct SLLNode *next;
 } SLLNode;
 
 SLLNode *insert(SLLNode *head, int data){
- 
+
    if(head == NULL){
        SLLNode *newNode = (SLLNode *)malloc(sizeof(SLLNode));;
        newNode->data = data;
@@ -41,7 +40,7 @@ void print_linked_list(SLLNode *head){
 }
 
 int main(){
-  
+
    SLLNode *head = NULL;
    head = insert(head, 10);
    head = insert(head, 20);
