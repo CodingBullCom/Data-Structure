@@ -30,13 +30,30 @@ SLLNode *insert(SLLNode *head, int data){
 
 void print_linked_list(SLLNode *head){
 
+   int i = 0;
    SLLNode *tempNode = head;
    printf("\nPrinting the linked list content\n");
    while(tempNode != NULL){
        printf("\n%p, %d %p",tempNode, tempNode->data, tempNode->next);
        tempNode = tempNode->next;
+       i++;
    }
    printf("\n");
+   if (i == 0)
+      printf("\tNO DATA FOUND TO PRINT\n");
+}
+
+SLLNode *destroy_linked_list(SLLNode *head) {
+   
+    SLLNode *current_node = head;
+
+    while(head != NULL) {
+       head = head->next; 
+       current_node->next = NULL;
+       free(current_node);
+       current_node = head;
+    }
+    return head; 
 }
 
 int main(){
@@ -47,5 +64,7 @@ int main(){
    head = insert(head, 30);
    print_linked_list(head);
 
+   head = destroy_linked_list(head);
+   print_linked_list(head);
    return 0;
 }
