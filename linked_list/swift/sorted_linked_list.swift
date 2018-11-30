@@ -61,7 +61,6 @@ struct SortedLinkedList<E> {
                     head = newNode
                     return
                 } else {
-                    newNode.next = current
                     previous!.next = newNode
                     return
                 }

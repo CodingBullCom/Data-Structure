@@ -14,12 +14,12 @@ struct Queue<E> {
 
     mutating func enqueue(element: E) {
         let newNode = LinkedListNode<E>(data: element)
-        if tail == nil {
+        if head == nil {
             head = newNode
             tail = newNode
         } else {
             tail?.next = newNode
-            tail = newNode
+            tail = tail?.next
         }
     }
 
@@ -40,7 +40,7 @@ struct Queue<E> {
             }
             temp = temp?.next
         }
-        print()
+        print("nil")
     }
 }
 
